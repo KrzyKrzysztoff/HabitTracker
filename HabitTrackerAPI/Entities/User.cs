@@ -1,7 +1,10 @@
-﻿namespace HabitTrackerAPI.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace HabitTrackerAPI.Entities
 {
-    internal class User
+    public class User
     {
+        [Key]
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
