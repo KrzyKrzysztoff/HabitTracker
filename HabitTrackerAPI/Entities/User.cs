@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+using System.ComponentModel.DataAnnotations;
 
 namespace HabitTrackerAPI.Entities
 {
     public class User
     {
-        [Key]
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -12,6 +12,15 @@ namespace HabitTrackerAPI.Entities
         public DateTime UpdateDate { get; set; }
         public string EmailAdress { get; set; }
         public string Password { get; set; }
-        public List<Habit> Habits { get; set; }
+
+
+
+        public Schedule Schedule { get; set; }
+        public int ScheduleId { get; set; }
+
+        public Address Address { get; set; }
+        public Guid AddressId { get; set; }
+
+        public List<Target> Targets { get; set; } = new List<Target>();
     }
 }

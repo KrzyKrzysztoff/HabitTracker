@@ -7,6 +7,7 @@ var connectionString = builder.Configuration.GetConnectionString("HabitTrackerCS
 // Add services to the container.
 
 builder.Services.AddControllers();
+
 builder.Services.AddDbContext<HabitTrackerDbContext>(options =>
 {
     options.UseSqlServer(connectionString);
