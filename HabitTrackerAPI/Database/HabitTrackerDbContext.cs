@@ -12,6 +12,15 @@ namespace HabitTrackerAPI.Database
 
         public DbSet<User> Users { get; set; }
         public DbSet<Habit> Habits { get; set; }
+        public DbSet<Account> Accounts{ get; set; }
+        public Address Address { get; set; }
+        public Important Important { get; set; }
+        public DbSet<Schedule> Schedules{ get; set; }
+        public DbSet<ScheduleHabit> ScheduleHabits { get; set; }
+        public DbSet<Target> Targets { get; set; }
+        public DbSet<TargetUser> TargetUsers { get; set; }
+
+        public int MyProperty { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
