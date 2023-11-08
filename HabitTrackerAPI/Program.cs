@@ -31,4 +31,15 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+
+/* aktualizacja bazay danych */
+using var scope = app.Services.CreateScope();
+var dbContext = scope.ServiceProvider.GetService<HabitTrackerDbContext>();
+var pendingMigration = dbContext.Database.GetPendingMigrations(); // oczekuj¹ce migracje
+
+if (pendingMigration.Any())
+{
+    dbContext.Database.Migrate();
+}
+
 app.Run();
