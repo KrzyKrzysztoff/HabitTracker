@@ -46,6 +46,8 @@ namespace HabitTrackerAPI.Database
                 .HasForeignKey<User>(f => f.ScheduleId); 
 
                 eb.Property(x => x.CreateDate).HasDefaultValue(DateTime.Now);
+
+                //eb.HasData(new User() { Id = 1, FirstName = "Krzysztof", LastName = "Nowak"});
             });
 
             modelBuilder.Entity<Target>(eb =>

@@ -48,7 +48,7 @@ namespace HabitTrackerAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Address");
+                    b.ToTable("Address", (string)null);
                 });
 
             modelBuilder.Entity("HabitTrackerAPI.Entities.Habit", b =>
@@ -84,7 +84,7 @@ namespace HabitTrackerAPI.Migrations
 
                     b.HasIndex("ImportantId");
 
-                    b.ToTable("Habits");
+                    b.ToTable("Habits", (string)null);
                 });
 
             modelBuilder.Entity("HabitTrackerAPI.Entities.Important", b =>
@@ -103,7 +103,7 @@ namespace HabitTrackerAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Important");
+                    b.ToTable("Important", (string)null);
                 });
 
             modelBuilder.Entity("HabitTrackerAPI.Entities.Schedule", b =>
@@ -119,7 +119,7 @@ namespace HabitTrackerAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Schedules");
+                    b.ToTable("Schedules", (string)null);
                 });
 
             modelBuilder.Entity("HabitTrackerAPI.Entities.ScheduleHabit", b =>
@@ -139,7 +139,7 @@ namespace HabitTrackerAPI.Migrations
 
                     b.HasIndex("ScheduleId");
 
-                    b.ToTable("ScheduleHabits");
+                    b.ToTable("ScheduleHabits", (string)null);
                 });
 
             modelBuilder.Entity("HabitTrackerAPI.Entities.Target", b =>
@@ -167,7 +167,7 @@ namespace HabitTrackerAPI.Migrations
 
                     b.HasIndex("ImportantId");
 
-                    b.ToTable("Targets");
+                    b.ToTable("Targets", (string)null);
                 });
 
             modelBuilder.Entity("HabitTrackerAPI.Entities.TargetUser", b =>
@@ -190,7 +190,7 @@ namespace HabitTrackerAPI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("TargetUsers");
+                    b.ToTable("TargetUsers", (string)null);
                 });
 
             modelBuilder.Entity("HabitTrackerAPI.Entities.User", b =>
@@ -233,7 +233,7 @@ namespace HabitTrackerAPI.Migrations
                     b.HasIndex("ScheduleId")
                         .IsUnique();
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("User");
 

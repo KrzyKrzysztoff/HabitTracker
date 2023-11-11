@@ -1,4 +1,5 @@
 using HabitTrackerAPI.Database;
+using HabitTrackerAPI.Entities;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,6 +41,29 @@ var pendingMigration = dbContext.Database.GetPendingMigrations(); // oczekuj¹ce 
 if (pendingMigration.Any())
 {
     dbContext.Database.Migrate();
+}
+
+var users = dbContext.Users.Include(x => x.Address).ToList();
+
+if (!users.Any())
+{
+
+    User user = new()
+    {
+        FirstName = "Krzyszotf",
+        LastName = "Jaworski",
+        Address = new()
+        {
+            Country = "Polska"
+        },
+        Schedule = new()
+        {
+           Date = DateTime.Now
+        }
+    };
+
+    await dbContext.Users.AddAsync(user);
+    await dbContext.SaveChangesAsync();
 }
 
 app.Run();
